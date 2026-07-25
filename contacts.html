@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- font awesome import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>My Personal Website</title>
+    <style>
+        /* Container layout */
+        .social-container {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* General button style */
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            color: white;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        /* Hover effect */
+        .social-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* Platform-specific brand colors */
+        .instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .instagram1 {
+            background: linear-gradient(45deg, #2d961d, #10a2c6, #10a2c6, #2d961d, #2d961d);
+        }
+
+        .instagram2 {
+            background: #965f9c
+        }
+
+        .linkedin {
+            background: linear-gradient(45deg, #006eff, #006eff, #358cff, #006eff);
+        }
+
+        .email {
+            background: linear-gradient(45deg, #af8ac9, #af8ac9, #c29ddd, #af8ac9);
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+            color: white;
+        }
+
+        .sparkle {
+            position: fixed;
+            top: -10px;
+            color: #59436c;
+            /* Gold color */
+            user-select: none;
+            pointer-events: none;
+            /* Prevents sparkles from blocking clicks */
+            z-index: 9999;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0;
+            }
+
+        }
+
+        .quote {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            color: #5d546c99;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Angela's Site</div>
+        <div class="quote">( ܁₊ ⊹⋆˚౨ৎ ⋆.ᶻ 𝗓 𐰁 *·˚ˎˊ- )</div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="social-container">
+            <a href="https://instagram.com/a.ngelaliang" target="_blank" class="social-btn instagram">
+                <i class="fa-brands fa-instagram"></i> Personal
+            </a>
+            <a href="https://instagram.com/buildstem" target="_blank" class="social-btn instagram1">
+                <i class="fa-brands fa-instagram"></i> BuildSTEM
+            </a>
+            <a href="https://instagram.com/en1day" target="_blank" class="social-btn instagram2">
+                <i class="fa-brands fa-instagram"></i> En1day
+            </a>
+            <a href="https://www.linkedin.com/in/angela-liang-75a8692b4/" target="_blank" class="social-btn linkedin">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:angela.12liang@gmail.com" target="_blank" class="social-btn email">
+                <i class="fa-regular fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+    <script>
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+
+            // Choose a random sparkle character
+            const shapes = ['✦', '✧', '★', '⊹', '꩜', '*', '✩'];
+            sparkle.innerText = shapes[Math.floor(Math.random() * shapes.length)];
+
+            // Randomize horizontal position, size, and fall duration
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.fontSize = (Math.random() * 5 + 20) + 'px';
+
+            const duration = Math.random() * 3 + 5; // Between 2 and 5 seconds
+            sparkle.style.animationDuration = duration + 's';
+
+            document.body.appendChild(sparkle);
+
+            // Clean up the sparkle after it finishes falling
+            setTimeout(() => {
+                sparkle.remove();
+            }, duration * 1000);
+        }
+
+        // Create a new sparkle every 150 milliseconds
+        setInterval(createSparkle, 300);
+    </script>
+    <footer>
+        <div class="footer-content">
+            <p>(c) Angela 2026</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

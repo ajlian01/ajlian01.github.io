@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <title>My Personal Website</title>
+    <style>
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); */
+            position: relative;
+            /* <--- Required for z-index to work */
+            z-index: 1;
+            /* <--- Keeps the box on top of the sparkles */
+            border-radius: 8px;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-top: 60px;
+
+        }
+
+        /* sparkles */
+        body {
+            margin: 0;
+            overflow: hidden;
+            color: rgb(81, 75, 70);
+        }
+
+        .sparkle {
+            position: fixed;
+            top: -10px;
+            color: #59436c;
+            /* Gold color */
+            user-select: none;
+            pointer-events: none;
+            /* Prevents sparkles from blocking clicks */
+            z-index: 9999;
+            animation: fall linear forwards;
+            top: -10px;
+            z-index: -1;
+            /* Sets sparkles behind content */
+
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Angela's Site</div>
+        <div class="quote">( ܁₊ ⊹⋆˚౨ৎ ⋆.ᶻ 𝗓 𐰁 *·˚ˎˊ- )</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h1>Page 2</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h1>Page 1</h1>
+        </div>
+    </div>
+    <script>
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+
+            // Choose a random sparkle character
+            const shapes = ['✦', '✧', '★', '⊹', '꩜', '*', '✩'];
+            sparkle.innerText = shapes[Math.floor(Math.random() * shapes.length)];
+
+            // Randomize horizontal position, size, and fall duration
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.fontSize = (Math.random() * 5 + 20) + 'px';
+
+            const duration = Math.random() * 3 + 5; // Between 2 and 5 seconds
+            sparkle.style.animationDuration = duration + 's';
+
+            document.body.appendChild(sparkle);
+
+            // Clean up the sparkle after it finishes falling
+            setTimeout(() => {
+                sparkle.remove();
+            }, duration * 1000);
+        }
+
+        // Create a new sparkle every 150 milliseconds
+        setInterval(createSparkle, 300);
+    </script>
+    <footer>
+        <div class="footer-content">
+            <p>(c) Angela 2026</p>
+        </div>
+    </footer>
+</body>
+
+</html>
